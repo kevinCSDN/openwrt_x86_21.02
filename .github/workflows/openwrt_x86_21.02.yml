@@ -73,6 +73,7 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         git clone -b main https://github.com/fw876/helloworld package/helloworld
+        git clone https://github.com/sdhz151/kernel_r8152_v2.16.3.git package/kernel/r8152
         $GITHUB_WORKSPACE/$DIY_P1_SH
         sudo rm -rf package/helloworld/shadowsocksr-libev
         sudo rm -rf package/helloworld/mosdns
@@ -155,18 +156,6 @@ jobs:
        echo "package/kernel/r8168" >> .git/info/sparse-checkout
        git pull --depth 1 origin openwrt-23.05
 
-    - name: r8152
-      id: r8152
-      run: |
-       cd openwrt
-       mkdir -p package/kernel/r8152
-       cd package/kernel/r8152
-       git init
-       git remote add origin https://github.com/immortalwrt/immortalwrt.git
-       git config core.sparsecheckout true
-       echo "package/kernel/r8152" >> .git/info/sparse-checkout
-       git pull --depth 1 origin openwrt-18.06
-
     - name: Soft connection
       id: soft
       run: |
@@ -188,9 +177,6 @@ jobs:
        rsync -a package/kernel/r8168/package/kernel/r8168/* package/kernel/r8168
        rm -rf package/kernel/r8168/package
        rm -rf package/kernel/r8168/.git
-       rsync -a package/kernel/r8152/package/kernel/r8152/* package/kernel/r8152
-       rm -rf package/kernel/r8152/package
-       rm -rf package/kernel/r8152/.git
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
