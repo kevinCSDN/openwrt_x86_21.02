@@ -13,8 +13,8 @@ name: openwrt-x86-21.02
 
 on:
  repository_dispatch:
- schedule:
-    - cron: 0 21 * * 1-6/3
+# schedule:
+  #  - cron: 0 21 * * 1-6/3
  workflow_dispatch:
     inputs:
       ssh:
