@@ -11,14 +11,16 @@
 #
 
 # Modify default IP
+rm -rf luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon
 # sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.10/g' target/linux/x86/Makefile
 if [[ $VERSION && ! $FULLNAME ]]; then
-   sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+   #sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
    echo "============================="
    echo "diy-part2扩展自定义第一项设置完成"
    echo "============================="
 elif [[ $VERSION && $FULLNAME ]]; then
-   sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+   #sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
    sed -i "s/timezone='UTC'/timezone='CST-8'/" package/base-files/files/bin/config_generate
    sed -i "/timezone='CST-8'/a \ \ \ \ \ \ \ \ set system.@system[-1].zonename='Asia/Shanghai'" package/base-files/files/bin/config_generate
    sed -i "s/add_list system.ntp.server='0.openwrt.pool.ntp.org'/add_list system.ntp.server='ntp.aliyun.com'/" package/base-files/files/bin/config_generate
