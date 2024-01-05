@@ -4,13 +4,13 @@ Date: Fri, 5 Jan 2024 07:08:40 +0800
 Subject: [PATCH] Update Makefile
 
 ---
- package/passwall/p/luci-app-passwall/Makefile | 39 +++-----------------------------------
+ feeds/luci/applications/luci-app-passwall/Makefile | 39 +++-----------------------------------
  1 file changed, 3 insertions(+), 36 deletions(-)
 
-diff --git a/package/passwall/p/luci-app-passwall/Makefile b/package/passwall/p/luci-app-passwall/Makefile
+diff --git a/feeds/luci/applications/luci-app-passwall/Makefile b/feeds/luci/applications/luci-app-passwall/Makefile
 index ffee7c6c72..de186cf200 100644
---- a/package/passwall/p/luci-app-passwall/Makefile
-+++ b/package/passwall/p/luci-app-passwall/Makefile
+--- a/feeds/luci/applications/luci-app-passwall/Makefile
++++ b/feeds/luci/applications/luci-app-passwall/Makefile
 @@ -10,8 +10,6 @@ PKG_VERSION:=4.71-3
  PKG_RELEASE:=
  
